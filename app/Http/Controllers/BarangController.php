@@ -51,10 +51,6 @@ class BarangController extends Controller
   
       return view('barang/show', ['title' => 'Show Barang'], compact('barang'));
 
-        // $barang = Barang::find($id);
-        // $barang = Barang::all();
-
-        // return view('barang/show', ['title' => 'Show Barang'], compact('barang'));
     }
 
     public function edit($id) {

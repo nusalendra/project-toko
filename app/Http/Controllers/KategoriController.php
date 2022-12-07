@@ -66,16 +66,9 @@ class KategoriController extends Controller {
         return view('kategori/edit', ['title' => 'Edit Kategori'], compact('kategori'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $kategori = Kategori::find($request->$id);
+        $kategori = Kategori::find($request->id);
 
         $kategori->name = $request->name;
         $kategori->slug = $request->slug;

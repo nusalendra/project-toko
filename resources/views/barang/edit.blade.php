@@ -16,7 +16,7 @@
             </div>                                           
             
             <div class="form-floating mb-2">
-                <input type="text" name="slug" class="form-control rounded-bottom" id="slug" placeholder="Nama Barang" required autofocus>
+                <input type="text" name="slug" class="form-control rounded-bottom" id="slug" placeholder="Nama Barang" value="{{ $barang->slug }}"" required autofocus>
                 <label for="slug" name="slug">Slug</label>
             </div>
 
@@ -31,21 +31,11 @@
             </div>               
                 
             <label for="kategori">Kategori</label>
-            <select class="form-select form-select-lg mb-3" name="kategori_id">   
-                <option selected></option>                                                                     
+            <select class="form-select form-select-lg mb-3" name="kategori_id">                                                                    
                 @foreach($kategori as $item)                                                               
                         <option value="{{ $item->id }}">{{ $item->name }}</option>                    
                 @endforeach
             </select>            
-           
-
-            {{-- <label for="kategori">Rak</label>
-            <select class="form-select form-select-lg mb-3" name="rak_id">  
-                <option selected></option>
-                @foreach($rak as $item)                                                                                      
-                <option value="{{ $item->id }}" >{{ $item->name }}</option>                                    
-                @endforeach
-            </select>       --}}
             
             <div class="mb-3">
                 <label for="image" class="form-label">Post Image</label>
@@ -61,6 +51,7 @@
             <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Save</button> 
             <small class="d-block text-center mt-3">Want to go back? <a href="/barang">Back</a></small>           
         </form>  
+    </div>
 </div>  
 
 @endsection

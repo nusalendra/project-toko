@@ -15,8 +15,8 @@
         <tr>
             <th scope="col">No</th>            
             <th scope="col">Nama</th>   
-            <th scope="col">Image</th>
             <th scope="col">Slug</th>
+            <th scope="col">Image</th>
             <th scope="col">Action</th>      
         </tr>
       </thead>
@@ -25,10 +25,10 @@
             <tr>
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $item->name }}</td>                
+                <td>{{ $item->slug }}</td>
                 <td>
                   <img src="{{ url('public/Image/'.$item->image) }}" style="height: 100px; width: 150px;">
                 </td>
-                <td>{{ $item->slug }}</td>
                 <td><a href="/kategori/edit/{{$item->id}}" class="btn btn-primary" style="margin-right: 6px;" ><i class="bi bi-file-earmark-text"></i></a> <a href="/kategori/hapus/{{$item->id}}" class="btn btn-danger" onclick="return confirm('Are you sure ?')"><i class="bi bi-file-earmark-x"></i></a></td>                    
             </tr>
         @endforeach
