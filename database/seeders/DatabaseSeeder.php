@@ -40,18 +40,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Gudang Utama'
         ]);
 
-        Rak::create([
-            'name' => 'Rak Pensil'
-        ]);
-
-        Rak::create([
-            'name' => 'Rak Buku'
-        ]);
-
-        Rak::create([
-            'name' => 'Komputer & Aksesoris'
-        ]);
-
         // Kategori::create([
         //     'name' => 'Buku'
         // ]);

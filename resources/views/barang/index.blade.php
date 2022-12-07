@@ -15,8 +15,9 @@
         <tr>
             <th scope="col">No</th>
             <th scope="col">Kategori</th>
-            <th scope="col">Rak</th>
+            {{-- <th scope="col">Rak</th> --}}
             <th scope="col">Nama</th>
+            <th scope="col">Slug</th>
             <th scope="col">Stock</th>
             <th scope="col">Harga</th>
             {{-- <th scope="col">Deskripsi</th>
@@ -29,9 +30,11 @@
             <tr>
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $item->kategori->name }}</td>
-                <td>{{ $item->rak->name }}</td>
+                {{-- <td>{{ $item->rak->name }}</td> --}}
                 <td> {{ substr(strip_tags($item->name), 0, 20) }}
-                  {{ strlen(strip_tags($item->name)) > 20 ? "..." : "" }}</td>
+                  {{ strlen(strip_tags($item->name)) > 20 ? "..." : "" }}
+                </td>
+                <td>{{ $item->slug }}</td>                
                 <td>{{ $item->stock }}</td>                
                 <td>Rp. {{ number_format($item->harga) }}</td>  
                 {{-- gambar --}}

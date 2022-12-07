@@ -17,7 +17,7 @@ class CreateKategorisTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('image')->nullable();
-            $table->string('slug')->nullable();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

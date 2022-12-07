@@ -9,10 +9,6 @@ class Barang extends Model
 {
     protected $table = 'barangs';
 
-    public function rak() {
-        return $this->belongsTo("App\Models\Rak");
-    }
-
     public function kategori() {
         return $this->belongsTo("App\Models\Kategori");
     }

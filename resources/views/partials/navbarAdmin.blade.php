@@ -21,9 +21,6 @@
         <li class="nav-item">
           <a class="nav-link {{ ($title === 'Gudang') ? 'active' : '' }}" href="/gudang">Gudang</a>                    
         </li>
-        <li class="nav-item ">
-          <a class="nav-link {{ ($title === 'Rak') ? 'active' : '' }}" href="/rak">Rak</a>                    
-        </li>
       </ul>
     
       <ul class="navbar-nav ms-auto">        

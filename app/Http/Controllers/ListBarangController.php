@@ -4,19 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Barang;
+use App\Models\Kategori;
 
-class BukuController extends Controller
+class ListBarangController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug)
     {
-        $data = Barang::all();
+        $kategori = Kategori::where('slug', $slug)->first();
+        $data = Barang::where('kategori_id', $kategori->id)->get();
         
-        return view('listBuku', ['title' => 'List Buku'], compact("data"));
+        return view('listBarang', ['title' => 'List'], compact("data"));
     }
 
     /**

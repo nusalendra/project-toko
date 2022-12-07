@@ -16,7 +16,7 @@
                 <div class="card-content">
                   <p class="card-text mb-2" style="text-align: right; font-size: 12px; color:black"><strong>Rp. {{number_format($item->harga)}},-</strong></p>
                   <p class="card-text" style="text-align: right; font-size: 12px; color:black;"><strong>Stock Barang : {{ $item->stock }}</strong> </p>
-                  <a href="{{ url('transaksi') }}/{{ $item->id }}" class="btn btn-success" style="margin-left: 77px; margin-right: 5px; "><i class="bi bi-file-earmark-text"></i></a><a href="" class="btn btn-dark"><i class="bi bi-bag-dash-fill"></i></a>
+                  <a href="/barang/{{ $item->slug }}" class="btn btn-dark" style="margin-left: 127px;"><i class="bi bi-bag-dash-fill"></i></a>
                 </div>
               </div>
             </div>
@@ -24,4 +24,5 @@
         @endforeach    
     </div>
 </div>
+
 @endsection

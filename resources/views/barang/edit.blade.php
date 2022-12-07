@@ -11,18 +11,23 @@
             <input type="hidden" name="id" value="{{ $barang->id }}">
 
             <div class="form-floating mb-2">
-            <input type="text" name="name" class="form-control rounded-bottom" id="name" placeholder="Nama Barang" value="{{ $barang->name }}" required autofocus >
-            <label for="name" name="name">Nama Barang</label>
-            </div>                                               
+                <input type="text" name="name" class="form-control rounded-bottom" id="name" placeholder="Nama Barang" value="{{ $barang->name }}" required autofocus >
+                <label for="name" name="name">Nama Barang</label>
+            </div>                                           
+            
+            <div class="form-floating mb-2">
+                <input type="text" name="slug" class="form-control rounded-bottom" id="slug" placeholder="Nama Barang" required autofocus>
+                <label for="slug" name="slug">Slug</label>
+            </div>
 
             <div class="form-floating mb-2">
-            <input type="text" name="stock" class="form-control rounded-bottom" id="stock" placeholder="Stock Barang" value="{{ $barang->stock }}" required autofocus >
-            <label for="stock" name="stock">Stock Barang</label>
+                <input type="text" name="stock" class="form-control rounded-bottom" id="stock" placeholder="Stock Barang" value="{{ $barang->stock }}" required autofocus >
+                <label for="stock" name="stock">Stock Barang</label>
             </div>   
             
             <div class="form-floating mb-3">
-            <input type="text" name="harga" class="form-control rounded-bottom" id="harga" placeholder="Harga Barang" value="{{ $barang->harga }}" required autofocus>
-            <label for="harga" name="harga">Harga Barang</label>
+                <input type="text" name="harga" class="form-control rounded-bottom" id="harga" placeholder="Harga Barang" value="{{ $barang->harga }}" required autofocus>
+                <label for="harga" name="harga">Harga Barang</label>
             </div>               
                 
             <label for="kategori">Kategori</label>
@@ -34,13 +39,13 @@
             </select>            
            
 
-            <label for="kategori">Rak</label>
+            {{-- <label for="kategori">Rak</label>
             <select class="form-select form-select-lg mb-3" name="rak_id">  
                 <option selected></option>
                 @foreach($rak as $item)                                                                                      
                 <option value="{{ $item->id }}" >{{ $item->name }}</option>                                    
                 @endforeach
-            </select>      
+            </select>       --}}
             
             <div class="mb-3">
                 <label for="image" class="form-label">Post Image</label>

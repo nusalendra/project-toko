@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Barang;
 use Illuminate\Support\Facades\Crypt;
+use App\Models\Barang;
 
 class TransaksiController extends Controller
 {
@@ -13,11 +13,12 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($slug)
     {
-        $barang = Barang::where('id', $id)->first();
+        $barang = Barang::where('slug', $slug)->first();
+        $data = Barang::where('id', $barang->id)->get();
 
-        return view('pesan/index', ['title' => 'Description Product'], compact('barang'));
+        return view('pesan/index', ['title' => 'Product Detail'], compact('data'));
     }
 
     /**

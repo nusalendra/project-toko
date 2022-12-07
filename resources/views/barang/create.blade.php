@@ -11,7 +11,12 @@
             <div class="form-floating mb-2">
                 <input type="text" name="name" class="form-control rounded-bottom" id="name" placeholder="Nama Barang" required autofocus>
                 <label for="name" name="name">Nama Barang</label>
-            </div>                                               
+            </div> 
+            
+            <div class="form-floating mb-2">
+                <input type="text" name="slug" class="form-control rounded-bottom" id="slug" placeholder="Slug" required autofocus>
+                <label for="slug" name="slug">Slug</label>
+            </div>  
 
             <div class="form-floating mb-2">
                 <input type="text" name="stock" class="form-control rounded-bottom" id="stock" placeholder="Stock Barang" required autofocus>
@@ -25,19 +30,17 @@
                 
             <label for="kategori">Kategori</label>
             <select class="form-select form-select-lg mb-3" name="kategori_id">
-                <option selected></option>                                                                        
                 @foreach($kategori as $item)
                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                 @endforeach
             </select>            
            
-            <label for="kategori">Rak</label>
+            {{-- <label for="kategori">Rak</label>
             <select class="form-select form-select-lg mb-3" name="rak_id">                                                                        
-                <option selected></option>
                 @foreach($rak as $item)                    
                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                 @endforeach
-            </select>  
+            </select>   --}}
             
             <div class="mb-3">
                 <label for="image" class="form-label">Post Image</label>
@@ -62,3 +65,4 @@
 </script>
 
 @endsection
+
