@@ -15,13 +15,13 @@ class CreateTransaksisTable extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('barang_id');
-            $table->unsignedBigInteger('user_id');            
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('barang_id');         
             $table->integer('jumlah');            
             $table->timestamps();
             $table->datetime('barang_keluar');
-            $table->foreign('barang_id')->references('id')->on('barangs');
-            $table->foreign('user_id')->references('id')->on('users');           
+            $table->foreign('user_id')->references('id')->on('users');       
+            $table->foreign('barang_id')->references('id')->on('barangs');       
         });
     }
 

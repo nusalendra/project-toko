@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Barang;
+use App\Models\Transaksi;
 
 class TransaksiController extends Controller
 {
@@ -17,10 +18,10 @@ class TransaksiController extends Controller
     {
         $barang = Barang::where('slug', $slug)->first();
         $data = Barang::where('id', $barang->id)->get();
-
+        
         return view('pesan/index', ['title' => 'Product Detail'], compact('data'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -28,7 +29,7 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -39,8 +40,22 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validate = $request->validate([
+            'jumlah' => 'required',
+            'user_id' => 'required',
+            'barang_id' => 'required'
+        ]);
+
+        
+        Transaksi::create($validate);
+        
+        $barang = Barang::find($request->barang_id);
+        $barang->stock = $barang->stock - $request->jumlah;
+
+        $barang->save();
+        
+        return redirect('/')->with('success', 'Successful Transaction');
+    }   
 
     /**
      * Display the specified resource.

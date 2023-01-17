@@ -3,22 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Barang;
-use App\Models\Kategori;
+use App\Models\Transaksi;
 
-class ListBarangController extends Controller
+class LaporanController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($slug)
+    public function index()
     {
-        $kategori = Kategori::where('slug', $slug)->first();
-        $data = Barang::where('kategori_id', $kategori->id)->get();
-        
-        return view('listBarang', ['title' => "Chonus.id | $kategori->name"], compact("data"));
+        $data = Transaksi::whereNotNull('barang_keluar')->get();
+
+        return view('laporan', ["title" => "Laporan"], compact('data'));
     }
 
     /**

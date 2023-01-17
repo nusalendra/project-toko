@@ -11,6 +11,7 @@ use App\Http\Controllers\GudangController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\ListBarangController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,9 @@ Route::get('/barang/kategori/{slug}', [ListBarangController::class, 'index'])->n
 
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard', [DashboardController::class, 'index']);
-    Route::get('/homeAdmin', [AdminController::class, 'index']);
+
+    Route::get('/homeAdmin', [AdminController::class, 'index'])->name('homeAdmin');
+    Route::POST('/konfirmasi', [AdminController::class, 'store']);
     
     Route::get('/barang', [BarangController::class, 'index'])->name('barang');
     Route::get('/barang/create', [BarangController::class, 'create'])->name('barangCreate');
@@ -61,8 +64,10 @@ Route::middleware('auth')->group(function() {
     Route::get('/kategori/hapus/{id}', [KategoriController::class, 'destroy'])->name('kategoriDestroy');
 
     Route::get('/barang/{slug}', [TransaksiController::class, 'index'])->name('transaksi');
+    Route::POST('/pesan/barang', [TransaksiController::class, 'store']);
 
-
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
+    
 });
 
 Route::get('/', [HomeController::class, 'index']);

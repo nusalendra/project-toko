@@ -2,6 +2,12 @@
 
 @section('content')
 
+@if(session()->has('success'))
+<div class="alert alert-success" style="text-align: center;" role="alert">
+  {{ session('success') }}
+</div>
+@endif
+
 <div class="container">
   <div class="row justify-content-center mt-5">
       @foreach($data as $item)
